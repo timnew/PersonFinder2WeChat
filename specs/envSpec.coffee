@@ -19,6 +19,3 @@ describe 'environment', ->
 
   it 'Services', ->
     Services.should.be.instanceOf Object
-
-  it 'configuration', ->
-    configuration.apiServer.should.be.ok
