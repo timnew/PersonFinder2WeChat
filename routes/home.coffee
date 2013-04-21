@@ -1,2 +1,2 @@
 exports.index = (req, res) ->
-  res.send "Hello"
+  res.render 'home/index'
