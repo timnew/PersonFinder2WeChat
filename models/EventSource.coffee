@@ -1,5 +1,5 @@
 EventEmitter = require('events').EventEmitter
-_ = require('underscore')
+_ = require('lodash')
 
 class EventSource extends EventEmitter
   constructor: (@id) ->
