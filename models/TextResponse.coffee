@@ -1,6 +1,6 @@
 class TextResponse
   constructor: (data) ->
-    @serviceName = 'gh_07db88683e6c'
+    @serviceName = data.serviceName
     @userName = data.userName
     @message = data.message
 

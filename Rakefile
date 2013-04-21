@@ -14,7 +14,7 @@ namespace :app do
 end
 
 desc "Run spec in default mode"
-task :spec => %w[spec:once spec:db]
+task :spec => %w[spec:once]
 
 namespace :spec do
   desc "Run specs once"
@@ -27,15 +27,6 @@ namespace :spec do
   task :watch, :test_files do |t, args|
     args.with_defaults test_files: 'specs/*Spec.coffee specs/**/*Spec.coffee'
     sh %Q[mocha -r 'specs/specHelper.js' -R spec -w -G -t 5000 #{args.test_files}]
-  end
-
-  desc "Run specs for all adapters of Expirable Repository"
-  task :db do
-    environments = %w{memory redis}
-
-    environments.each do |env|
-      sh %Q[NODE_ENV=test:#{env} mocha -r 'specs/specHelper.js' -R spec -G 'specs/services/ExpirableRepositoryDbTest.coffee']
-    end
   end
 end
 

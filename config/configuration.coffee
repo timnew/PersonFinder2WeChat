@@ -10,5 +10,4 @@ class Config.test extends Config.development
 
 class Config.heroku extends Config
 
-
 module.exports = new Config[process.env.NODE_ENV]()

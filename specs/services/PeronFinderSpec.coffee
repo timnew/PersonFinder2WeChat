@@ -5,11 +5,13 @@ describe 'PersonFinder', ->
 
   it 'Should exported', ->
     Services.PersonFinder.should.be.ok
-    Services.PersonFinder.should.be.instanceOf Function
+    Services.PersonFinder.should.respondTo 'findPerson'
+    Services.PersonFinder.PersonFinder.should.be.ok
+    Services.PersonFinder.PersonFinder.should.be.instanceOf Function
 
   describe 'buildQuery', ->
     it 'should ignore apikey if not avaiable', ->
-      finder = new Services.PersonFinder(testRepo)
+      finder = new Services.PersonFinder.PersonFinder(testRepo)
 
       query = finder.buildQuery
         q: 'Someone'
@@ -18,7 +20,7 @@ describe 'PersonFinder', ->
         q: 'Someone'
 
     it 'should apply apikey if avaiable', ->
-      finder = new Services.PersonFinder(testRepo, apiKey)
+      finder = new Services.PersonFinder.PersonFinder(testRepo, apiKey)
 
       query = finder.buildQuery
         q: 'Someone'
@@ -28,7 +30,7 @@ describe 'PersonFinder', ->
         key: apiKey
 
   describe 'findPerson', ->
-    finder = new Services.PersonFinder(testRepo)
+    finder = new Services.PersonFinder.PersonFinder(testRepo)
 
     it 'should return person', (done) ->
       finder.findPerson 'Achille', (err, person) ->
