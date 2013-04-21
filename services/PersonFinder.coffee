@@ -140,7 +140,7 @@ class PersonFinder
 
     new Person(personData, notes)
 
-module.exports = new PersonFinder('test-nokey', null)
+module.exports = new PersonFinder('test-nokey', Configuration.apiKey)
 
 module.exports.PersonFinder = PersonFinder
 
