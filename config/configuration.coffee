@@ -4,6 +4,7 @@ class Config
   port: 80
   cookieSecret: '#()JO@HFOHO#I@HRKNFKLBCWERHIO@HEROFDHF'
   apiKey: null
+  repository: '2013-sichuan-earthquake'
 
 class Config.development extends Config
 
