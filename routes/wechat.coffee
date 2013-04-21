@@ -7,5 +7,8 @@ exports.request = (req, res) ->
   Services.readStream req, (err, body) ->
     console.log body
 
-    res.send 503
+    response = new Models.TextResponse
+      userName: "oeGWdjp_F2bsJlX5fOTOwsZ2Fokw"
+      message: "Hello WeChat"
 
+    res.send response.serialize()

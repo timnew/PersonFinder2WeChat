@@ -1,4 +1,4 @@
-class Text
+class TextResponse
   constructor: (data) ->
     @userName = data.userName
     @message = data.message
@@ -7,7 +7,7 @@ class Text
     """
     <xml>
       <ToUserName><![CDATA[#{@userName}]]></ToUserName>
-      <FromUserName><![CDATA[ThoughtWorksChina]]></FromUserName>
+      <FromUserName><![CDATA[gh_07db88683e6c]]></FromUserName>
       <CreateTime>#{Date.now()}</CreateTime>
       <MsgType><![CDATA[text]]></MsgType>
       <Content><![CDATA[#{message}]]></Content>
@@ -15,4 +15,4 @@ class Text
     </xml>
     """
 
-exports.Text = Text
+module.exports = TextResponse
