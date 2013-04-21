@@ -3,3 +3,6 @@ exports.initialize = (req, res) ->
   #TODO verify signature against token, timestamp and once
   res.send req.query.echostr
 
+exports.request = (req, res) ->
+  console.log req.body
+
