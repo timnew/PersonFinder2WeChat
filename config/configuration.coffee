@@ -5,7 +5,6 @@ class Config
   cookieSecret: '#()JO@HFOHO#I@HRKNFKLBCWERHIO@HEROFDHF'
 
 class Config.development extends Config
-  port: 3000
 
 class Config.test extends Config.development
 
