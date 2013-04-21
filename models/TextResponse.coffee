@@ -1,5 +1,6 @@
 class TextResponse
   constructor: (data) ->
+    @serviceName = 'gh_07db88683e6c'
     @userName = data.userName
     @message = data.message
 
@@ -7,10 +8,10 @@ class TextResponse
     """
     <xml>
       <ToUserName><![CDATA[#{@userName}]]></ToUserName>
-      <FromUserName><![CDATA[gh_07db88683e6c]]></FromUserName>
+      <FromUserName><![CDATA[#{@serviceName}]]></FromUserName>
       <CreateTime>#{Date.now()}</CreateTime>
       <MsgType><![CDATA[text]]></MsgType>
-      <Content><![CDATA[#{message}]]></Content>
+      <Content><![CDATA[#{@message}]]></Content>
       <FuncFlag>0</FuncFlag>
     </xml>
     """
