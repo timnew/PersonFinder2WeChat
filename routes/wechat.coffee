@@ -4,5 +4,8 @@ exports.initialize = (req, res) ->
   res.send req.query.echostr
 
 exports.request = (req, res) ->
-  console.log req.body
+  Services.readStream req, (err, body) ->
+    console.log body
+
+    res.send 503
 
