@@ -75,7 +75,7 @@ class TextRequest extends WeChatRequest
   searchPerson: (callback, name) ->
     Services.PersonFinder.findPerson name, (err, personInfo) =>
       return callback(err) if err?
-      console.log "Respond: #{personInfo}"
+      console.log typeof( personInfo)
       @respondText(callback, personInfo)
 
 WeChatRequest.types.text = TextRequest

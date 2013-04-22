@@ -99,6 +99,7 @@ class PersonFinder
       .end (err, res) =>
         return callback(err) if err?
 
+
         handler = new htmlparser.DefaultHandler (err, data) =>
           return calback(err) if err?
 
@@ -145,7 +146,7 @@ class PersonFinder
 
     for node in dom.children when node.type == 'tag'
       name = node.name.split(':')[1]
-      noteData[name] = node.children[0].data
+      noteData[name] = node.children[0]?.data
 
     new Note(noteData)
 
@@ -157,7 +158,7 @@ class PersonFinder
       if name == 'note'
         notes.push @parseNote(node)
       else
-        personData[name] = node.children[0].data
+        personData[name] = node.children[0]?.data
 
     new Person(personData, notes)
 

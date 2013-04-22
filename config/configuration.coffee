@@ -9,6 +9,7 @@ class Config
 class Config.development extends Config
 
 class Config.test extends Config.development
+  repository: 'test-nokey'
 
 class Config.heroku extends Config
   apiKey: process.env.apiKey

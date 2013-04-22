@@ -14,8 +14,11 @@ exports.request = (req, res) ->
       return err.send 500 if err?
 
       if response?
-        res.send response.serialize()
+        responseText = response.serialize()
+        console.log "Response: #{responseText}"
+        res.send responseText
       else
+        console.log "Response: 404"
         res.send 404
 
   parser = new htmlparser.Parser(handler)
