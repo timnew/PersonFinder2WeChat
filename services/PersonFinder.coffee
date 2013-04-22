@@ -120,10 +120,19 @@ class PersonFinder
     personDoms = htmlparser.DomUtils.getElementsByTagName('pfif:person', root[0])
 
     persons = []
-    for personDom in personDoms
-      persons.push @parsePerson(personDom)
 
-    callback(null, @renderModels(persons))
+    if personDoms.length == 0
+      message = """
+                数据库中暂时还没有您查询的内容
+                您可以访问下面连接，帮助完善数据库
+                https://google.org/personfinder/2013-sichuan-earthquake/create?role=seek
+                """
+      callback(null, message)
+    else
+      for personDom in personDoms
+        persons.push @parsePerson(personDom)
+
+      callback(null, @renderModels(persons))
 
   renderModels: (models) ->
     result = ''
