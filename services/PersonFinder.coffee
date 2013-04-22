@@ -45,9 +45,21 @@ class Person
     male: '男'
     female: '女'
 
+  renderSex: ->
+    if @sex?
+      @sexText[@sex]
+    else
+      ‘性别未登录’
+
+  renderAge: ->
+    if @age?
+      "#{@age} 岁"
+    else
+      "年龄未登录"
+
   render: ->
     """
-    #{@full_name} #{@sexText[@sex]} #{@age}岁
+    #{@full_name} #{@renderSex()} #{@renderAge()}
 
     #{@renderNotes()}
     原始链接：#{@source_url}
