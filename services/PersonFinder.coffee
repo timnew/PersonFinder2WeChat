@@ -16,6 +16,7 @@ htmlparser = require("htmlparser2")
   <pfif:family_name>Bottino</pfif:family_name>
   <pfif:sex>male</pfif:sex>
   <pfif:age>13</pfif:age>
+  <pfif:description>看上去傻傻的</pfif:description>
   <pfif:note>
     <pfif:note_record_id>test-nokey.personfinder.google.org/note.24361198</pfif:note_record_id>
     <pfif:person_record_id>test-nokey.personfinder.google.org/person.24185213</pfif:person_record_id>
@@ -57,9 +58,16 @@ class Person
     else
       "年龄未登录"
 
+  renderDescription: ->
+    if @description?
+      "描述: #{@description}"
+    else
+      ''
+
   render: ->
     """
     #{@full_name} #{@renderSex()} #{@renderAge()}
+    #{@renderDescription()}
 
     #{@renderNotes()}
     原始链接：#{@source_url}
