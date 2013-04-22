@@ -49,7 +49,7 @@ class Person
     if @sex?
       @sexText[@sex]
     else
-      ‘性别未登录’
+      '性别未登录'
 
   renderAge: ->
     if @age?
